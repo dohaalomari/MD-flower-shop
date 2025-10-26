@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الرسائل المستلمة</title>
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background: #fffafc;
+            color: #333;
+            margin: 30px;
+            direction: rtl;
+        }
+        h1 {
+            color: #c2185b;
+            text-align: center;
+        }
+        .message {
+            background: #ffe6ef;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .info {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>ٌReceved messages</h1>
+
+    {% if messages %}
+        {% for msg in messages %}
+        <div class="message">
+            <strong>name:</strong> {{ msg[1] }}<br>
+            <strong>email :</strong> {{ msg[2] }}<br>
+            <strong>phone number :</strong> {{ msg[3] }}<br>
+            <strong>your message:</strong>
+            <p>{{ msg[4] }}</p>
+            <div class="info"> message data </data>{{ msg[5] }}</div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align:center;">no messages</p>
+    {% endif %}
+
+</body>
+</html>
